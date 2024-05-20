@@ -1,16 +1,9 @@
-// Пакування товарів
-function isEnoughCapacity(products, containerSize) {
-  let totalProducts = Object.values(products).reduce(
-    (acc, curr) => acc + curr,
-    0
-  );
-  return totalProducts <= containerSize;
-}
-
-console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
-
-console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
-
-console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
-
-console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
+// З використанням властивостей і методів DOM-елементів, напиши скрипт, який:1.Порахує й виведе в консоль кількість категорій в ul#categories, тобто елементів li.item.2.Для кожного елемента li.item у списку ul#categories знайде й виведе в консоль текст заголовка елемента (тегу <h2>) і кількість елементів у категорії (усіх <li>, вкладених у нього).
+const categoriesList = document.getElementById("categories");
+const categoriesItems = categoriesList.querySelectorAll("li.item");
+console.log(`Number of categories: ${categoriesItems.length}`);
+categoriesItems.forEach((item) => {
+  const categoryTitle = item.querySelector("h2").textContent;
+  const categoryItems = item.querySelectorAll("ul li").length;
+  console.log(`Category: ${categoryTitle} \nElements: ${categoryItems}`);
+});
