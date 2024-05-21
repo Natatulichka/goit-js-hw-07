@@ -24,8 +24,9 @@ destroyBtn.addEventListener("click", handleDestroy);
 function handleDestroy() {
   destroyBoxes();
 }
-const boxes = [];
+let boxes = [];
 function createBoxes(amount) {
+  destroyBoxes();
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
     box.style.width = `${30 + i * 10}px`;
